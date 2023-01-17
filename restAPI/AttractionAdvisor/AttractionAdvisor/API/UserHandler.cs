@@ -14,6 +14,27 @@ class UserHandler
         _context = context;
     }
 
+    public async Task<int> Register(User user)
+    {
+        var userExists = await _context.Users.AnyAsync(
+            x => x.UserName == user.UserName);
+        if (userExists)
+        {
+            throw new Exception("User already exists");
+        }
+
+        var newUser = new User
+        {
+            UserName = user.UserName,
+            Password = user.Password
+        };
+
+        await _context.Users.AddAsync(newUser);
+        await _context.SaveChangesAsync();
+
+        return newUser.Id;
+    }
+
     public async Task<bool> Login(User user)
     {
         // Check if the deserialized user object is valid.

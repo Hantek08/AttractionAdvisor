@@ -1,4 +1,5 @@
-﻿using AttractionAdvisor.DataAccess;
+﻿using System.Linq.Expressions;
+using AttractionAdvisor.DataAccess;
 using AttractionAdvisor.API;
 using AttractionAdvisor.Utils;
 using AttractionAdvisor.Models;
@@ -21,7 +22,6 @@ var context = serviceProvider.GetService<AttractionAdvisorDbContext>();
 var userHandler = new UserHandler(context);
 
 app.UseHttpsRedirection();
-
 app.MapPost("api/login", async (HttpRequest request, HttpResponse response) =>
 {
     // Validate request.
@@ -45,6 +45,35 @@ app.MapPost("api/login", async (HttpRequest request, HttpResponse response) =>
     
     response.StatusCode = 200;
     await response.WriteAsJsonAsync(new { message = "Logged in successfully" });
+});
+
+app.MapPost("api/register", async (HttpRequest request, HttpResponse response) =>
+{
+    // Validate request.
+    if (!Utils.ValidateRequest(request))
+    {
+        response.StatusCode = 400;
+        await response.WriteAsJsonAsync(new { message = "Invalid request." });
+        return;
+    }
+
+    // Deserialize request JSON to Models.User.
+    var user = await Utils.Deserialize<User>(request);
+
+    try
+    {
+        var userId = await userHandler.Register(user);
+        response.StatusCode = 200;
+        await response.WriteAsJsonAsync(new
+        {
+            message = $"user {userId} registered successfully"
+        });
+    }
+    catch(Exception)
+    {
+        response.StatusCode = 400;
+        await response.WriteAsJsonAsync(new { message = "User already exists" });
+    }
 });
 
 app.Run("http://localhost:8080");
