@@ -1,1 +1,100 @@
-2023-01-14:Hanna and Sahar created a new project Attraction Advisor and also created database.
+Onsdag 11-01-2023
+
+Första mötet med gruppen. Genomgång av projektet och diskussion om vilka som vill jobba med frontend och backend.
+
+
+Torsdag 12-01-2023
+Vi bestämde vem det skulle vara Scrum Master och Product Owner varje vecka 
+för att alla skulle få chansen att lära sig och utforska de olika rollerna och deras ansvar, och Sprint planering varje måndag,
+Sprint review varje fredag.
+Vi skapade Trello och Gruppregler
+vecka 2:
+Scrum master: Sahar
+PO: Hanna
+
+vecka 3:
+Scrum master : Jossefin
+PO: Carl-Henrik
+
+vecka 4:
+Scrum master:Hanna
+PO:Jossefin
+
+vecka: 5:
+
+Scrum master:
+Kamran
+PO: Sahar
+
+vecka: 6
+
+Scrum master : Carl-Henrik
+PO: Kamran
+
+Fredag 13-01-2023
+
+Första Scrum möte, blir planering!
+Diskussion om upplägg: fokusera på funktionalitet.
+Vi kör code first eftersom vi inte vet hur databasen ska se ut.
+Upplägg:
+FrontEnd - Carl-Henrik och Kamran
+BackEnd - Hanna och Sahar
+Fullstack - Josefine (flygande)
+Databas  - Alla i gruppen
+
+Struktur och arkitektur 
+            Frontend : React Next.js (Neovim & VSC)         
+Backend: C#, code first i EF core, Restful webapi (Visual Studio 2022, .NET 6)
+Databas : SSMS
+
+Tekniska utmaningar 
+Vi är betydligt färre i vår grupp än i resterande grupper.
+Vi har inte så stora förkunskaper i varesig React eller EF Core Code First
+
+Jag skapade tomt webapi-projekt och skapade modeller med 4 klasser och pushat till github. Eftersom jag var produktägare den här veckan lade jag till några av kundens krav i produktbackloggen
+
+Fredag 17-01-23;
+Vi hade en diskussion om vi skulle använda Minimal API eller Controller API för att bygga vår API-tjänst. Vi bestämde Controller API efter att vi övervägt sina för- och nackdelar beroende på projektets specifika krav och utvecklarnas preferenser.
+Måndag 23-01-23;
+Vi börjar dagen med Scrum möte.Vi i backend fördelade uppgifter. Jag ska fixa comment och ratting CRUD. 
+
+Tisdag 24-01-23;
+Scrum möte med gruppen. Jag började med att skapa repository för comment och ratting 
+
+Onsdag 25-01-23
+Inget scrum möte pga lektion. Jag gjorde klart CRUD-operation för comment och ratting och gjorde Pull Request i Github. 
+
+Torsdag 26-01-23
+
+Scrum möte med teamet. Vi granskat Pull Request och merga till main branch. Vi stötte på små problem när vi testade post metoden för UserController i Swagger. 
+För att kunna testa post-metoden var vi tvungna att fylla i alla navigerings-property(Attraction, Comment, Ratting) i klassen User. Vi löste genom att lägga till nullable och jasonignore på navigerings-property.
+
+Fredag 27-01-23
+
+Individuellt arbete med projektet på förmiddagen. Hela eftermiddagen satt vi alla i gruppen och försökte koppla ihop backend med frontend. Gick inte så bra och vi kom inte vidare.
+
+Måndag 30-01
+
+Scrum möte. Vi har lyckats koppla ihop backend med frontend. Gjort en sprint review och sprint plannering. Idag jobbar jag med följande funktioner:
+få totalt antal tummen upp och ner för en attraktion, använder kan kun betygsätta engång på en attraktion.
+
+Tisdag 31-01
+
+Vi testat alla endpoints gemensamt med alla som jobbar med backend. Det fungerar som det ska
+
+
+Onsdag 01-02
+
+Fortsätta jobba med ratting.
+
+Torsdag 02-02
+
+Jag görde klart ratting och pushat til Git. 
+
+Måndag 13-02 Jobbade med random metoden med Sahar. Vi laddade ner Bogus från nuget-paketet för att generera slumpmässiga falska data. Eftersom vi behövde arbeta med Agila projektet har jag inte jobbat med projektet senaste veckan.
+
+Tisdag 14-02  Möte med gruppen för at lösa buggar i Comments. När man lägger till en comment så hamnar den fel i atttractions. 
+
+Onsdag 15-02
+
+Vi i backend  fixade alla buggar samt satt med frontend teamet och testade allt. 
